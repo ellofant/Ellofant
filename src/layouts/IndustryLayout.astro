@@ -1,57 +1,71 @@
 ---
+import Layout from './Layout.astro';
+
+export interface Props {
+  title: string;
+  industry: string;
+}
+
+const { title, industry } = Astro.props;
 ---
 
-<nav>
-  <div class="nav-content">
-    <a href="/" class="logo">Your Logo</a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/industry">Industry</a></li>
-      <li><a href="/about-us">About Us</a></li>
-    </ul>
+<Layout title={title}>
+  <div class="industry-layout">
+    <aside>
+      <h3>Industries</h3>
+      <ul>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#healthcare">Healthcare</a></li>
+        <li><a href="#finance">Finance</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </aside>
+    <main>
+      <h1>{industry}</h1>
+      <slot />
+    </main>
   </div>
-</nav>
+</Layout>
 
 <style>
-  nav {
-    background-color: #f8f9fa;
-    padding: 1rem 0;
-  }
-
-  .nav-content {
+  .industry-layout {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
   }
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
+  aside {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
   }
 
-  .nav-links {
-    display: flex;
+  aside h3 {
+    margin-top: 0;
+  }
+
+  aside ul {
     list-style: none;
-    margin: 0;
     padding: 0;
   }
 
-  .nav-links li {
-    margin-left: 1.5rem;
+  aside li {
+    margin-bottom: 0.5rem;
   }
 
-  .nav-links a {
+  aside a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    color: var(--text-color);
   }
 
-  .nav-links a:hover {
-    color: #007bff;
+  aside a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex: 1;
   }
 </style>

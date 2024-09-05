@@ -1,48 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Our Company">
-  <h1>Welcome to Our Company</h1>
-  <p>We are a leading provider of innovative solutions across various industries.</p>
-  
-  <h2>Our Services</h2>
-  <ul class="link-card-grid">
-    <Card
-      href="/industry#technology"
-      title="Technology Solutions"
-      body="Cutting-edge software and hardware solutions for businesses."
-    />
-    <Card
-      href="/industry#healthcare"
-      title="Healthcare Innovation"
-      body="Advanced medical technology and healthcare management systems."
-    />
-    <Card
-      href="/industry#finance"
-      title="Financial Services"
-      body="Secure and efficient financial management tools and consulting."
-    />
-    <Card
-      href="/industry#education"
-      title="Education Technology"
-      body="Digital learning platforms and educational resource management."
-    />
-  </ul>
+<Layout title="AI Innovate - Transforming Industries with AI">
+  <main>
+    <section class="hero">
+      <h1>Transforming Industries with AI</h1>
+      <p>Empowering businesses with cutting-edge artificial intelligence solutions</p>
+      <a href="#contact" class="button">Get Started</a>
+    </section>
+    
+    <section class="features">
+      <h2>Our AI Solutions</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Predictive Analytics</h3>
+          <p>Harness the power of data to forecast trends and make informed decisions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Natural Language Processing</h3>
+          <p>Understand and interact with human language for enhanced communication.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Computer Vision</h3>
+          <p>Analyze and interpret visual data for advanced image recognition.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Autonomous Systems</h3>
+          <p>Develop self-operating systems for various industries and applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Revolutionize Your Business?</h2>
+      <p>Join the AI revolution and stay ahead of the competition.</p>
+      <a href="/contact" class="button">Get Started Today</a>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <blockquote>
+          "AI Innovate has transformed our operations, increasing efficiency by 200%."
+          <footer>- John Doe, CEO of TechCorp</footer>
+        </blockquote>
+        <blockquote>
+          "The predictive analytics solution has given us unparalleled insights into market trends."
+          <footer>- Jane Smith, CTO of DataDrive</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
+  /* You can add any additional styles specific to this page here */
+  /* These styles will be scoped to this component */
 </style>
