@@ -3,56 +3,127 @@ export interface Props {}
 ---
 
 <nav>
-  <div class="nav-content">
-    <a href="/" class="logo">Your Logo</a>
+  <div class="navbar-container">
+    <a href="/" class="logo">AI Innovate</a>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/industry">Industry</a></li>
       <li><a href="/about-us">About Us</a></li>
+      <li><a href="/industry">Industries</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <style>
   nav {
-    background-color: #f8f9fa;
+    background-color: var(--primary-color);
     padding: 1rem 0;
   }
-  
-  .nav-content {
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 1rem;
   }
-  
+
   .logo {
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
   }
-  
+
   .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
+    gap: 1rem;
     margin: 0;
     padding: 0;
   }
-  
-  .nav-links li {
-    margin-left: 1.5rem;
-  }
-  
+
   .nav-links a {
+    color: white;
     text-decoration: none;
-    color: #333;
     font-weight: 500;
   }
-  
+
   .nav-links a:hover {
-    color: #007bff;
+    text-decoration: underline;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--primary-color);
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0.5rem 0;
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+  });
+</script>

@@ -1,0 +1,12 @@
+{
+  "submissions": [
+    {
+      "firstName": "john ",
+      "lastName": "doe",
+      "phone": "(615) 930-7581",
+      "email": "johndoe@example.com",
+      "message": "test message",
+      "timestamp": "2024-09-06T14:32:09.433Z"
+    }
+  ]
+}
