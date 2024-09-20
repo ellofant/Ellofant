@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="AI Innovate - Transforming Industries with AI">
+<Layout title="Ellofant">
   <main>
     <section class="hero">
       <div class="hero-content">
         <h1>Revolutionizing Industries with AI</h1>
         <p>Empowering businesses to thrive in the age of artificial intelligence</p>
-        <a href="/engage-today" class="cta-button">Get Started</a>
+        <a href="/contact" class="cta-button">Get Started</a>
       </div>
     </section>
     
@@ -17,18 +17,30 @@ import Layout from '../layouts/Layout.astro';
         <h2>Our Purpose</h2>
         <div class="purpose-grid">
           <div class="purpose-item">
+            <div class="purpose-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
             <h3>Innovate</h3>
             <p>Pushing the boundaries of AI to create cutting-edge solutions that transform industries.</p>
           </div>
           <div class="purpose-item">
+            <div class="purpose-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
             <h3>Empower</h3>
             <p>Equipping businesses with the tools and knowledge to harness the full potential of AI.</p>
           </div>
           <div class="purpose-item">
+            <div class="purpose-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
             <h3>Collaborate</h3>
             <p>Fostering partnerships to drive collective growth and advancement in AI technology.</p>
           </div>
           <div class="purpose-item">
+            <div class="purpose-icon">
+              <i class="fas fa-balance-scale"></i>
+            </div>
             <h3>Ethical AI</h3>
             <p>Ensuring responsible development and deployment of AI solutions for a better future.</p>
           </div>
@@ -43,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="service-item text top-right">
           <h2>Our Services</h2>
-          <p>At AI Innovate, we offer cutting-edge AI solutions tailored to your business needs. Our services range from predictive analytics and machine learning implementations to natural language processing and computer vision applications.</p>
+          <p>At Ellofant, we offer cutting-edge AI solutions tailored to your business needs. Our services range from predictive analytics and machine learning implementations to natural language processing and computer vision applications.</p>
         </div>
         <div class="service-item text bottom-left">
           <h3>Innovative Consulting</h3>
@@ -212,28 +224,6 @@ import Layout from '../layouts/Layout.astro';
     background-color: #f0f0f0;
   }
 
-  .our-purpose {
-    background-color: #f8f9fa; /* Light grey background */
-    color: #333; /* Dark text for contrast */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .purpose-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-    color: #0056b3; /* Matching the hero blue */
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
   .purpose-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -243,24 +233,66 @@ import Layout from '../layouts/Layout.astro';
   .purpose-item {
     background-color: white;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .purpose-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0056b3, #50a0ff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .purpose-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .purpose-item:hover::before {
+    opacity: 0.1;
+  }
+
+  .purpose-icon {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .purpose-item:hover .purpose-icon {
+    transform: scale(1.1);
   }
 
   .purpose-item h3 {
     font-size: 1.5rem;
     color: #0056b3;
     margin-bottom: 1rem;
+    position: relative;
   }
 
   .purpose-item p {
     font-size: 1rem;
     line-height: 1.6;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .purpose-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .purpose-item {
+      padding: 1.5rem;
+    }
   }
 
   .services {
