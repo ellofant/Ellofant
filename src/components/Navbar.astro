@@ -24,7 +24,7 @@
 
 <style>
   nav {
-    background-color: #0056b3; /* ADA compliant blue */
+    background-color: #0056b3;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -39,29 +39,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    position: relative;  /* Added for absolute positioning of menu-toggle */
   }
 
   .logo img {
-  height: 35px; /* Adjust as needed */
-  width: auto;
-}
-  .nav-center {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
+    height: 40px;
+    width: auto;
   }
 
   .nav-links {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li {
-    margin: 0 1rem;
+    gap: 1rem;
   }
 
   .nav-links a {
@@ -69,13 +57,11 @@
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    display: block;
     transition: background-color 0.3s ease;
-    border-radius: 4px;
   }
 
   .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for highlight */
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .menu-toggle {
@@ -83,20 +69,16 @@
   }
 
   @media (max-width: 768px) {
-    .navbar-container {
-      flex-wrap: wrap;
-    }
-
-    .nav-center {
-      order: 3;
-      width: 100%;
-    }
-
     .menu-toggle {
       display: block;
       background: none;
       border: none;
       cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      z-index: 1001;
     }
 
     .menu-toggle span {
@@ -105,36 +87,40 @@
       height: 3px;
       background-color: white;
       margin: 5px 0;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
 
     .nav-links {
       display: none;
       flex-direction: column;
-      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #0056b3;
+      padding: 1rem;
     }
 
     .nav-links.active {
       display: flex;
     }
 
-    .nav-links li {
-      margin: 0.5rem 0;
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
     }
 
-    .nav-links a {
-      width: 100%;
-      text-align: center;
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
     }
 
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.1); /* Lighter highlight for mobile */
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
     }
   }
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -144,5 +130,11 @@
         menuToggle.classList.toggle('active');
       });
     }
-  });
+  }
+
+  // Run on initial load
+  initMobileMenu();
+
+  // If using Astro's View Transitions, reinitialize after each navigation
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>
