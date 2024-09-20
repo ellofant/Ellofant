@@ -5,56 +5,598 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="AI Innovate - Transforming Industries with AI">
   <main>
     <section class="hero">
-      <h1>Transforming Industries with AI</h1>
-      <p>Empowering businesses with cutting-edge artificial intelligence solutions</p>
-      <a href="/contact" class="button">Get Started</a>
+      <div class="hero-content">
+        <h1>Revolutionizing Industries with AI</h1>
+        <p>Empowering businesses to thrive in the age of artificial intelligence</p>
+        <a href="/engage-today" class="cta-button">Get Started</a>
+      </div>
     </section>
     
-    <section class="features">
-      <h2>Our AI Solutions</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>Predictive Analytics</h3>
-          <p>Harness the power of data to forecast trends and make informed decisions.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Natural Language Processing</h3>
-          <p>Understand and interact with human language for enhanced communication.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Computer Vision</h3>
-          <p>Analyze and interpret visual data for advanced image recognition.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Autonomous Systems</h3>
-          <p>Develop self-operating systems for various industries and applications.</p>
+    <section class="our-purpose">
+      <div class="purpose-content">
+        <h2>Our Purpose</h2>
+        <div class="purpose-grid">
+          <div class="purpose-item">
+            <h3>Innovate</h3>
+            <p>Pushing the boundaries of AI to create cutting-edge solutions that transform industries.</p>
+          </div>
+          <div class="purpose-item">
+            <h3>Empower</h3>
+            <p>Equipping businesses with the tools and knowledge to harness the full potential of AI.</p>
+          </div>
+          <div class="purpose-item">
+            <h3>Collaborate</h3>
+            <p>Fostering partnerships to drive collective growth and advancement in AI technology.</p>
+          </div>
+          <div class="purpose-item">
+            <h3>Ethical AI</h3>
+            <p>Ensuring responsible development and deployment of AI solutions for a better future.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <h2>Ready to Revolutionize Your Business?</h2>
-      <p>Join the AI revolution and stay ahead of the competition.</p>
-      <a href="/contact" class="button">Get Started Today</a>
+    <section class="services">
+      <div class="services-grid">
+        <div class="service-item image-placeholder top-left">
+          <!-- Image placeholder -->
+        </div>
+        <div class="service-item text top-right">
+          <h2>Our Services</h2>
+          <p>At AI Innovate, we offer cutting-edge AI solutions tailored to your business needs. Our services range from predictive analytics and machine learning implementations to natural language processing and computer vision applications.</p>
+        </div>
+        <div class="service-item text bottom-left">
+          <h3>Innovative Consulting</h3>
+          <p>We don't just provide technology; we partner with you to transform your business. Our innovative consulting approach combines deep industry knowledge with AI expertise to deliver solutions that drive real business value and keep you ahead of the competition.</p>
+        </div>
+        <div class="service-item image-placeholder bottom-right">
+          <!-- Image placeholder -->
+        </div>
+      </div>
     </section>
 
-    <section class="testimonials">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-grid">
-        <blockquote>
-          "AI Innovate has transformed our operations, increasing efficiency by 200%."
-          <footer>- John Doe, CEO of TechCorp</footer>
-        </blockquote>
-        <blockquote>
-          "The predictive analytics solution has given us unparalleled insights into market trends."
-          <footer>- Jane Smith, CTO of DataDrive</footer>
-        </blockquote>
+    <section class="help-strip">
+      <div class="help-content">
+        <h2>Ready to Amplify Your AI Potential?</h2>
+        <p>Let's decode your challenges and engineer your success together.</p>
+        <a href="/contact" class="help-cta">Initiate AI Synergy</a>
+      </div>
+    </section>
+
+    <section class="industries">
+      <h2>Industries We Transform</h2>
+      <div class="slideshow-container">
+        <div class="industry-card active">
+          <h3>Healthcare</h3>
+          <p>Revolutionizing patient care with AI-driven diagnostics and personalized treatment plans.</p>
+        </div>
+        <div class="industry-card">
+          <h3>Finance</h3>
+          <p>Enhancing risk assessment and fraud detection with advanced machine learning algorithms.</p>
+        </div>
+        <div class="industry-card">
+          <h3>Manufacturing</h3>
+          <p>Optimizing production processes and predictive maintenance with AI-powered insights.</p>
+        </div>
+        <div class="industry-card">
+          <h3>Retail</h3>
+          <p>Transforming customer experiences with AI-driven personalization and inventory management.</p>
+        </div>
+      </div>
+      <div class="slideshow-nav">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
       </div>
     </section>
   </main>
 </Layout>
 
 <style>
-  /* You can add any additional styles specific to this page here */
-  /* These styles will be scoped to this component */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  main {
+    padding-top: 60px; /* To account for the fixed navbar */
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .hero,
+  .our-purpose,
+  .services,
+  .industries {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+  }
+
+  /* Optimize transitions */
+  .purpose-item,
+  .industry-card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+  }
+
+  /* Rest of your existing styles... */
+
+  @media (max-width: 768px) {
+    /* Your existing media query styles... */
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      scroll-snap-type: none;
+    }
+
+    .purpose-item,
+    .industry-card {
+      transition: none;
+    }
+  }
+  main {
+    padding-top: 60px; /* To account for the fixed navbar */
+  }
+
+  .hero {
+    background-color: #0056b3; /* ADA compliant blue */
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #0056b3;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .our-purpose {
+    background-color: #f8f9fa; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .purpose-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: #0056b3; /* Matching the hero blue */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .purpose-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .purpose-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .purpose-item h3 {
+    font-size: 1.5rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+  }
+
+  .purpose-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .services {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+  }
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .image-placeholder {
+    background-color: #e0e0e0; /* Light grey placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-placeholder::after {
+    content: 'Image Placeholder';
+    color: #777;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .text {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  .text h2, .text h3 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+  }
+
+  .text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .top-left { grid-area: 1 / 1 / 2 / 2; }
+  .top-right { grid-area: 1 / 2 / 2 / 3; }
+  .bottom-left { grid-area: 2 / 1 / 3 / 2; }
+  .bottom-right { grid-area: 2 / 2 / 3 / 3; }
+
+  .help-strip {
+    background-color: #0056b3; /* Using the primary blue color */
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .help-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .help-strip h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .help-strip p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .help-cta {
+    display: inline-block;
+    background-color: white;
+    color: #0056b3;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .help-cta:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .industries {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 2rem;
+  }
+
+  .industries h2 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .slideshow-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .industry-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(100%);
+  }
+
+  .industry-card.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .industry-card h3 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+  }
+
+  .industry-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .slideshow-nav {
+    margin-top: 1rem;
+  }
+
+  .slideshow-nav button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .slideshow-nav button:hover {
+    background-color: #003d82;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .purpose-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .purpose-item {
+      padding: 1rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    .top-left { grid-area: 1 / 1 / 2 / 2; }
+    .top-right { grid-area: 2 / 1 / 3 / 2; }
+    .bottom-left { grid-area: 3 / 1 / 4 / 2; }
+    .bottom-right { grid-area: 4 / 1 / 5 / 2; }
+
+    .service-item {
+      padding: 1rem;
+    }
+
+    .text h2 {
+      font-size: 1.8rem;
+    }
+
+    .text h3 {
+      font-size: 1.5rem;
+    }
+
+    .text p {
+      font-size: 0.9rem;
+    }
+
+    .help-strip h2 {
+      font-size: 1.5rem;
+    }
+
+    .help-strip p {
+      font-size: 1rem;
+    }
+
+    .help-cta {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .industries {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 2rem;
+  }
+
+  .industries h2 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .slideshow-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .industry-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(100%);
+  }
+
+  .industry-card.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .industry-card h3 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+  }
+
+  .industry-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .slideshow-nav {
+    margin-top: 1rem;
+  }
+
+  .slideshow-nav button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .slideshow-nav button:hover {
+    background-color: #003d82;
+  }
+
 </style>
+
+<script>
+  function initSlideshow() {
+    const cards = document.querySelectorAll('.industry-card');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+
+    function showCard(index) {
+      cards.forEach((card, i) => {
+        card.classList.remove('active');
+        if (i === index) {
+          card.classList.add('active');
+        }
+      });
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showCard(currentIndex);
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      showCard(currentIndex);
+    }
+
+    if (prevButton && nextButton) {
+      nextButton.addEventListener('click', nextCard);
+      prevButton.addEventListener('click', prevCard);
+    }
+
+    // Show the first card initially
+    showCard(currentIndex);
+
+    // Optional: Auto-advance the slideshow
+    setInterval(nextCard, 5000);
+  }
+
+  // Initialize the slideshow when the page loads
+  document.addEventListener('astro:page-load', initSlideshow);
+
+  // Fallback: If the astro:page-load event doesn't fire, initialize after DOM content is loaded
+  document.addEventListener('DOMContentLoaded', initSlideshow);
+
+</script>

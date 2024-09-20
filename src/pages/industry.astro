@@ -1,27 +1,407 @@
 ---
-import LayoutIndustry from '../layouts/IndustryLayout.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<LayoutIndustry title="AI Innovate - Industries We Serve" industry="Industries We Serve">
-  <p>We provide innovative AI solutions across various industries. Select an industry from the sidebar to learn more about our specialized offerings.</p>
-  
-  <section id="technology">
-    <h2>Technology</h2>
-    <p>Our cutting-edge AI solutions help technology companies stay ahead in the digital age. From custom software development to IT consulting, we've got you covered.</p>
-  </section>
-  
-  <section id="healthcare">
-    <h2>Healthcare</h2>
-    <p>We're revolutionizing healthcare with advanced medical AI technology and efficient management systems. Our solutions improve patient care and streamline operations.</p>
-  </section>
-  
-  <section id="finance">
-    <h2>Finance</h2>
-    <p>Our AI-powered financial services provide secure and efficient tools for managing assets, analyzing markets, and making informed decisions. We help businesses and individuals achieve their financial goals.</p>
-  </section>
-  
-  <section id="education">
-    <h2>Education</h2>
-    <p>We're transforming education with innovative AI-driven learning platforms and resource management tools. Our solutions enhance the learning experience for students and educators alike.</p>
-  </section>
-</LayoutIndustry>
+<Layout title="AI Innovate - Industries We Transform">
+  <main class="industries-page">
+    <section class="hero">
+      <h1>Industries Revolutionized by AI</h1>
+      <p>Discover how we're reshaping the future across diverse sectors</p>
+    </section>
+
+    <section class="industry-showcase">
+      <div class="industry-container">
+        <div class="industry-item" id="healthcare">
+          <div class="industry-content">
+            <h2>Healthcare</h2>
+            <p>Revolutionizing patient care with AI-driven diagnostics and personalized treatment plans.</p>
+            <ul>
+              <li>Predictive health monitoring</li>
+              <li>AI-assisted surgeries</li>
+              <li>Drug discovery acceleration</li>
+            </ul>
+          </div>
+          <div class="industry-visual">
+            <div class="hex-container">
+              <div class="hexagon"></div>
+              <div class="hexagon"></div>
+              <div class="hexagon"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="industry-item" id="finance">
+          <div class="industry-content">
+            <h2>Finance</h2>
+            <p>Enhancing risk assessment and fraud detection with advanced machine learning algorithms.</p>
+            <ul>
+              <li>Algorithmic trading</li>
+              <li>Personalized banking experiences</li>
+              <li>Real-time fraud prevention</li>
+            </ul>
+          </div>
+          <div class="industry-visual">
+            <div class="chart-container">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="industry-item" id="manufacturing">
+          <div class="industry-content">
+            <h2>Manufacturing</h2>
+            <p>Optimizing production processes and predictive maintenance with AI-powered insights.</p>
+            <ul>
+              <li>Smart factory automation</li>
+              <li>Supply chain optimization</li>
+              <li>Quality control enhancement</li>
+            </ul>
+          </div>
+          <div class="industry-visual">
+            <div class="gear-container">
+              <div class="gear"></div>
+              <div class="gear"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="industry-item" id="retail">
+          <div class="industry-content">
+            <h2>Retail</h2>
+            <p>Transforming customer experiences with AI-driven personalization and inventory management.</p>
+            <ul>
+              <li>Dynamic pricing strategies</li>
+              <li>Intelligent inventory forecasting</li>
+              <li>Personalized shopping experiences</li>
+            </ul>
+          </div>
+          <div class="industry-visual">
+            <div class="cart-container">
+              <div class="cart"></div>
+              <div class="item"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Transform Your Industry?</h2>
+      <p>Let's harness the power of AI to drive innovation in your sector</p>
+      <a href="/contact" class="cta-button">Start Your AI Journey</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .industries-page {
+    background-color: #f0f4f8;
+    color: #333;
+  }
+
+  .hero {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .industry-showcase {
+    padding: 4rem 2rem;
+  }
+
+  .industry-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .industry-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .industry-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .industry-content {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .industry-content h2 {
+    color: #0056b3;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .industry-content p {
+    margin-bottom: 1rem;
+  }
+
+  .industry-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .industry-content li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .industry-content li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #0056b3;
+  }
+
+  .industry-visual {
+    flex: 1;
+    background-color: #e6f0ff;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+  }
+
+  /* Healthcare visual */
+  .hex-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .hexagon {
+    position: absolute;
+    width: 100px;
+    height: 57.74px;
+    background-color: #0056b3;
+    margin: 28.87px 0;
+  }
+
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+  }
+
+  .hexagon:before {
+    bottom: 100%;
+    border-bottom: 28.87px solid #0056b3;
+  }
+
+  .hexagon:after {
+    top: 100%;
+    width: 0;
+    border-top: 28.87px solid #0056b3;
+  }
+
+  .hexagon:nth-child(2) {
+    top: 50px;
+    left: 75px;
+  }
+
+  .hexagon:nth-child(3) {
+    top: 100px;
+  }
+
+  /* Finance visual */
+  .chart-container {
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+    width: 200px;
+  }
+
+  .bar {
+    width: 40px;
+    background-color: #0056b3;
+    margin: 0 5px;
+  }
+
+  .bar:nth-child(1) { height: 60%; }
+  .bar:nth-child(2) { height: 80%; }
+  .bar:nth-child(3) { height: 100%; }
+  .bar:nth-child(4) { height: 70%; }
+
+  /* Manufacturing visual */
+  .gear-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .gear {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #0056b3;
+    border-radius: 50%;
+  }
+
+  .gear:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 40px;
+    width: 20px;
+    height: 130px;
+    background-color: #0056b3;
+  }
+
+  .gear:after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: -15px;
+    width: 130px;
+    height: 20px;
+    background-color: #0056b3;
+  }
+
+  .gear:nth-child(2) {
+    top: 60px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Retail visual */
+  .cart-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 100px;
+    border: 10px solid #0056b3;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .cart:before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    width: 40px;
+    height: 80px;
+    border: 10px solid #0056b3;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .item {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0056b3;
+    border-radius: 10px;
+  }
+
+  .cta {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #0056b3;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+
+    .industry-item,
+    .industry-item:nth-child(even) {
+      flex-direction: column;
+    }
+
+    .industry-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .industry-visual {
+      width: 100%;
+      min-height: 200px;
+    }
+
+    .cta h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-button {
+      transition: none;
+    }
+  }
+</style>

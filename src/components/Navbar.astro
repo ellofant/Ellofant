@@ -1,5 +1,4 @@
 ---
-export interface Props {}
 ---
 
 <nav>
@@ -10,19 +9,25 @@ export interface Props {}
       <span></span>
       <span></span>
     </button>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about-us">About Us</a></li>
-      <li><a href="/industry">Industries</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/industry">Industry</a></li>
+        <li><a href="/engage-today">Engage Today</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <style>
   nav {
-    background-color: var(--primary-color);
+    background-color: #0056b3; /* ADA compliant blue */
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
   }
 
   .navbar-container {
@@ -41,22 +46,37 @@ export interface Props {}
     text-decoration: none;
   }
 
+  .nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0 1rem;
   }
 
   .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
   }
 
   .nav-links a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for highlight */
   }
 
   .menu-toggle {
@@ -64,18 +84,15 @@ export interface Props {}
   }
 
   @media (max-width: 768px) {
+    .navbar-container {
+      flex-wrap: wrap;
+    }
 
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
+    .nav-center {
+      order: 3;
+      width: 100%;
+    }
 
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
     .menu-toggle {
       display: block;
       background: none;
@@ -94,14 +111,8 @@ export interface Props {}
 
     .nav-links {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: var(--primary-color);
       flex-direction: column;
-      align-items: center;
-      padding: 1rem;
+      width: 100%;
     }
 
     .nav-links.active {
@@ -110,6 +121,15 @@ export interface Props {}
 
     .nav-links li {
       margin: 0.5rem 0;
+    }
+
+    .nav-links a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Lighter highlight for mobile */
     }
   }
 </style>
