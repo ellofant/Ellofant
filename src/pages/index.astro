@@ -164,6 +164,26 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
   }
 
+  .hero {
+    background-color: #0056b3;
+    color: white;  /* This ensures all text in the hero is white */
+    text-align: center;
+    padding: 4rem 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;  /* Explicitly setting the h1 to white */
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;  /* Explicitly setting the p to white */
+  }
   .hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -175,10 +195,7 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 1rem;
   }
 
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
+
 
   .cta-button {
     display: inline-block;
