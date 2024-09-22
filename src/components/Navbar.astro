@@ -1,5 +1,7 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
+
 
 <nav>
   <div class="navbar-container">
@@ -11,13 +13,11 @@
       <span></span>
       <span></span>
     </button>
-    <div class="nav-center">
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/industry">Industry</a></li>
-        <li><a href="/contact">Engage Today</a></li>
-      </ul>
+    <div class="nav-links">
+      <a href={baseUrl}>Home</a>
+      <a href={`${baseUrl}services`}>Services</a>
+      <a href={`${baseUrl}industry`}>Industry</a>
+      <a href={`${baseUrl}contact`}>Engage Today</a>
     </div>
   </div>
 </nav>
