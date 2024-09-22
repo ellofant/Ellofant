@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-
 export default defineConfig({
-  site: 'https://github.com/yamadashy/repopack.git',
-  base: 'astro-app',
-  
+  site: 'https://alonso510.github.io',
+  base: '/astro-app',
 });
