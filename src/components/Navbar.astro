@@ -1,6 +1,5 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
----
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;---
 
 
 <nav>
@@ -14,10 +13,10 @@ const baseUrl = import.meta.env.BASE_URL;
       <span></span>
     </button>
     <div class="nav-links">
-      <a href={baseUrl}>Home</a>
-      <a href={`${baseUrl}services`}>Services</a>
-      <a href={`${baseUrl}industry`}>Industry</a>
-      <a href={`${baseUrl}contact`}>Engage Today</a>
+      <a href={baseUrl + '/'}>Home</a>
+      <a href={`${baseUrl}/services/`}>Services</a>
+      <a href={`${baseUrl}/industry/`}>Industry</a>
+      <a href={`${baseUrl}/contact/`}>Engage Today</a>
     </div>
   </div>
 </nav>
