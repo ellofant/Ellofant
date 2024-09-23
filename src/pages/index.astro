@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 
 <Layout title="Ellofant">
@@ -8,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="hero-content">
         <h1> Changing Industries with AI</h1>
         <p>Empowering businesses to thrive in the age of artificial intelligence</p>
-        <a href="/contact" class="cta-button">Get Started</a>
+        <a href={`${baseUrl}/contact/`} class="cta-button">Get Started</a>
       </div>
     </section>
     
@@ -71,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="help-content">
         <h2>Ready to Amplify Your AI Potential?</h2>
         <p>Let's decode your challenges and engineer your success together.</p>
-        <a href="/contact" class="help-cta">Initiate AI Synergy</a>
+        <a href={`${baseUrl}/contact/`} class="help-cta">Initiate AI Synergy</a>
       </div>
     </section>
 
@@ -606,6 +607,25 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
+
+  function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+  }
+
+  // Run on initial load
+  initMobileMenu();
+
+  // If using Astro's View Transitions, reinitialize after each navigation
+  document.addEventListener('astro:page-load', initMobileMenu);
+
   function initSlideshow() {
     const cards = document.querySelectorAll('.industry-card');
     const prevButton = document.querySelector('.prev');
