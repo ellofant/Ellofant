@@ -11,7 +11,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
       <a href={baseUrl + '/'}>Home</a>
       <a href={`${baseUrl}/services/`}>Services</a>
       <a href={`${baseUrl}/industry/`}>Industry</a>
-      <a href={`${baseUrl}/contact/`}>Engage Today</a>
+      <a href={`${baseUrl}/contact/`} class="contact-button">Get in Touch!</a>
     </div>
   </div>
 </nav>
@@ -43,14 +43,15 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   .nav-links {
     display: flex;
     gap: 1rem;
+    align-items: center;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .nav-links::-webkit-scrollbar { /* WebKit */
+  .nav-links::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
@@ -63,8 +64,24 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     transition: background-color 0.3s ease;
   }
 
-  .nav-links a:hover {
+  .nav-links a:not(.contact-button):hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .contact-button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .contact-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
   }
 
   @media (max-width: 768px) {

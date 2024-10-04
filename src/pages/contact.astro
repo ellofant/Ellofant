@@ -2,180 +2,60 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contact Ellofant - Get Started with AI Solutions">
+<Layout title="Contact Us - AI Innovate">
   <main class="contact-page">
-    <div class="contact-content">
-      <h1>Get Started with AI Innovate</h1>
-      <p>Fill out the form below, and we'll get back to you to discuss how we can transform your business with AI.</p>
-
-      <form id="contact-form" class="contact-form">
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" required>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-
-        <button type="submit" class="submit-button">Submit</button>
-      </form>
-
-      <div id="form-message" class="form-message"></div>
+    <h1>Get in Touch!</h1>
+    <div class="iframe-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSci0oABW6iKbAHAZdH93v-E7dU6SgPd0B3nkf8NQUAowCHKgQ/viewform?embedded=true" width="640" height="876" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
+    <p class="fallback-text">
+      If the form doesn't load properly, you can <a href="https://docs.google.com/forms/d/e/1FAIpQLSci0oABW6iKbAHAZdH93v-E7dU6SgPd0B3nkf8NQUAowCHKgQ/viewform" target="_blank" rel="noopener noreferrer">click here</a> to open it in a new tab.
+    </p>
   </main>
 </Layout>
 
 <style>
-.contact-page {
-  background-color: #f0f4f8;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 1rem 2rem; /* Increased top padding */
-}
-
-.contact-content {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 100%;
-  max-width: 600px;
-}
-
-h1 {
-  color: #0056b3;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-p {
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.contact-form {
-  display: grid;
-  gap: 1rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 0.5rem;
-  color: #0056b3;
-}
-
-input,
-textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.submit-button {
-  background-color: #0056b3;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-  background-color: #003d82;
-}
-
-.form-message {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.form-message.success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.form-message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-@media (max-width: 768px) {
   .contact-page {
-    padding-top: 60px; /* Adjust for smaller screens */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    padding-top: calc(60px + 2rem); /* Adjust based on your navbar height */
   }
 
   h1 {
-    font-size: 1.5rem;
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 2rem;
   }
 
-  .contact-content {
-    padding: 1.5rem;
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 137.5%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
   }
-}
-</style>
 
-<script>
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    const formMessage = document.getElementById('form-message') as HTMLElement;
-  
-    if (form && formMessage) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        try {
-          const formData = new FormData(form);
-          const response = await fetch('/api/submit-form', {
-            method: 'POST',
-            body: formData
-          });
-  
-          const result = await response.json();
-  
-          if (response.ok) {
-            formMessage.textContent = 'Form submitted successfully. Check the server console for the submitted data.';
-            formMessage.className = 'form-message success';
-            form.reset();
-          } else {
-            throw new Error(result.message || 'Error submitting form');
-          }
-        } catch (error) {
-          if (error instanceof Error) {
-            formMessage.textContent = error.message;
-          } else {
-            formMessage.textContent = 'An unknown error occurred';
-          }
-          formMessage.className = 'form-message error';
-        }
-      });
-    } else {
-      console.error('Form or message element not found');
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .fallback-text {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .fallback-text a {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .contact-page {
+      padding-top: calc(100px + 2rem); /* Adjust based on your mobile navbar height */
     }
-  </script>
+  }
+</style>
