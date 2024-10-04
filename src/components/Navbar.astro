@@ -69,24 +69,41 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   }
 
   .contact-button {
-    background-color: #0056b3; /* Button color set to blue */
-    color: white; /* Text color for contrast */
-    border: 2px solid #0056b3; /* Optional border for more visibility */
-    border-radius: 5px; /* Adjusted to be less circular */
-    padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    background-color: white; /* Button background color */
+    color: #0056b3 !important; /* Text color for visibility with !important */
+    border: 2px solid #0056b3; /* Border for visibility */
+    border-radius: 50%; /* Circular shape */
+    padding: 0.5rem; /* Adjusted padding for mobile */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    display: flex; /* Center the text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-width: 120px; /* Minimum width to avoid small circles */
+    font-weight: 500; /* Ensure text is bold for visibility */
+    font-size: 1rem; /* Default font size */
+  }
 
-/* Optional hover effect */
-.contact-button:hover {
-    background-color: white; /* Change to white on hover */
-    color: #0056b3; /* Change text color back to blue on hover */
-    border: 2px solid #0056b3; /* Maintain border color */
-}
+ 
 
+  @media (max-width: 768px) {
+    .contact-button {
+      padding: 0.4rem; /* Smaller padding for mobile */
+      font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-button {
+      padding: 0.3rem; /* Even smaller padding for smaller screens */
+      font-size: 0.8rem; /* Even smaller font size for smaller screens */
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .nav-links {
+      gap: 0.5rem; /* Adjust gap between nav links */
+    }
+  }
 
   @media (max-width: 768px) {
     .navbar-container {
