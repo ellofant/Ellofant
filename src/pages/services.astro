@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 
 <Layout title="AI Innovate - Our Services">
@@ -264,7 +265,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="cta">
       <h2>Ready to Transform Your Business?</h2>
       <p>Let's harness the power of AI to drive your success</p>
-      <a href="/contact" class="cta-button">Get Started</a>
+      <a href={`${baseUrl}/contact/`} class="cta-button">Get Started</a>
     </section>
   </main>
 </Layout>
@@ -281,6 +282,7 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
     padding: 6rem 2rem 4rem;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    margin-top: 75px
   }
 
   .hero h1 {
