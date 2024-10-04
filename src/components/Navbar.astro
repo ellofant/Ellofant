@@ -18,7 +18,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
 <style>
   nav {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Original background color */
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -69,20 +69,24 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   }
 
   .contact-button {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
-    padding: 0.75rem;
+    background-color: #0056b3; /* Button color set to blue */
+    color: white; /* Text color for contrast */
+    border: 2px solid #0056b3; /* Optional border for more visibility */
+    border-radius: 5px; /* Adjusted to be less circular */
+    padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
-  }
+}
 
-  .contact-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-  }
+/* Optional hover effect */
+.contact-button:hover {
+    background-color: white; /* Change to white on hover */
+    color: #0056b3; /* Change text color back to blue on hover */
+    border: 2px solid #0056b3; /* Maintain border color */
+}
+
 
   @media (max-width: 768px) {
     .navbar-container {
