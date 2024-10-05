@@ -78,15 +78,34 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
-}
+  }
 
-/* Optional hover effect */
-.contact-button:hover {
-    background-color: white; /* Change to white on hover */
-    color: #0056b3; /* Change text color back to blue on hover */
-    border: 2px solid #0056b3; /* Maintain border color */
-}
+  /* Optional hover effect */
+  .contact-button:hover {
+    background-color: white;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+  }
 
+  @media (max-width: 768px) {
+    .contact-button {
+      padding: 0.4rem; /* Smaller padding for mobile */
+      font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-button {
+      padding: 0.3rem; /* Even smaller padding for smaller screens */
+      font-size: 0.8rem; /* Even smaller font size for smaller screens */
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .nav-links {
+      gap: 0.5rem; /* Adjust gap between nav links */
+    }
+  }
 
   @media (max-width: 768px) {
     .navbar-container {
