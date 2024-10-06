@@ -63,18 +63,18 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   }
 
   .contact-button {
-    background-color: #0056b3;
-    color: white;
-    border: 2px solid white;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+  background-color: #0056b3;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  .contact-button:hover {
-    background-color: white;
-    color: #0056b3;
-  }
+.contact-button:hover {
+  background-color: white;
+  color: #0056b3 !important; /* Use !important to override any inherited styles */
+}
 
   .menu-toggle {
     display: none;
