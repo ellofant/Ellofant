@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 
-<Layout title="Innovate Solutions - Our Services">
+<Layout title="Ellofant Solutions - Our Services">
   <main class="services-page">
     <section class="hero">
       <h1>Our Professional Services</h1>
@@ -393,26 +393,3 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     }
   }
 </style>
-<script>
-  function setupNavbar() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
-      });
-    }
-  }
-
-  // Run the setup immediately
-  setupNavbar();
-
-  // Also run the setup when the DOM content is loaded
-  document.addEventListener('DOMContentLoaded', setupNavbar);
-
-  // If using Astro's view transitions, also run the setup on navigation
-  document.addEventListener('astro:page-load', setupNavbar);
-</script>
