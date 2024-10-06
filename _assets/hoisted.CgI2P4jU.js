@@ -1,1 +1,0 @@
-(function(n){if(n.search[1]==="/"){var a=n.search.slice(1).split("&").map(function(e){return e.replace(/~and~/g,"&")}).join("?");window.history.replaceState(null,null,n.pathname.slice(0,-1)+a+n.hash)}})(window.location);
