@@ -104,88 +104,60 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
       </div>
     </section>
 
-    <section class="industries">
-      <h2>Industries We Transform</h2>
-      <div class="slideshow-container">
-        <div class="industry-card active">
-          <h3>Healthcare</h3>
-          <p>Improving patient care with innovative diagnostics and personalized treatment plans.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Finance</h3>
-          <p>Enhancing risk assessment and fraud detection with advanced technologies.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Manufacturing</h3>
-          <p>Optimizing production processes and predictive maintenance through data-driven insights.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Retail</h3>
-          <p>Transforming customer experiences with personalization and efficient inventory management.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Life Science</h3>
-          <p>Advancing research and development with enhanced data analysis and insights.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Energy Resources & Industrials</h3>
-          <p>Optimizing resource management and improving operational efficiency.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Public Sector</h3>
-          <p>Streamlining processes and improving service delivery in government and public services.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Higher Education</h3>
-          <p>Enhancing learning experiences and optimizing institutional operations.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Media, Gaming & Entertainment</h3>
-          <p>Innovating in content creation, audience engagement, and personalized experiences.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Technology & Communications</h3>
-          <p>Driving innovation and connectivity in tech and telecom industries.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Startups & Disruptive Tech</h3>
-          <p>Empowering startups to disrupt markets with cutting-edge technologies.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Life Science</h3>
-          <p>Advancing research and development through AI-enhanced data analysis and insights.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Energy Resources & Industrials</h3>
-          <p>Implementing AI solutions to optimize resource management and enhance operational efficiency.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Public Sector</h3>
-          <p>Streamlining processes and improving service delivery with AI applications in government and public services.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Higher Education</h3>
-          <p>Utilizing AI to enhance learning experiences and optimize institutional operations.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Media, Gaming & Entertainment</h3>
-          <p>Leveraging AI for content creation, audience engagement, and personalized experiences.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Technology & Communications</h3>
-          <p>Driving innovation and connectivity through advanced AI solutions in tech and telecom.</p>
-        </div>
-        <div class="industry-card">
-          <h3>Startups & Disruptive Tech</h3>
-          <p>Empowering innovative startups to disrupt markets with cutting-edge AI technologies.</p>
-        </div>
-      </div>
-      <div class="slideshow-nav">
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-      </div>
-    </section>
-    
+<section class="industries">
+  <h2>Industries We Transform</h2>
+  <div class="slideshow-container">
+    <div class="industry-card active">
+      <h3>Healthcare</h3>
+      <p>Improving patient care with innovative diagnostics and personalized treatment plans.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Finance</h3>
+      <p>Enhancing risk assessment and fraud detection with advanced technologies.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Manufacturing</h3>
+      <p>Optimizing production processes and predictive maintenance through data-driven insights.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Retail</h3>
+      <p>Transforming customer experiences with personalization and efficient inventory management.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Life Science</h3>
+      <p>Advancing research and development with enhanced data analysis and insights.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Energy Resources & Industrials</h3>
+      <p>Optimizing resource management and improving operational efficiency.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Public Sector</h3>
+      <p>Streamlining processes and improving service delivery in government and public services.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Higher Education</h3>
+      <p>Enhancing learning experiences and optimizing institutional operations.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Media, Gaming & Entertainment</h3>
+      <p>Innovating in content creation, audience engagement, and personalized experiences.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Technology & Communications</h3>
+      <p>Driving innovation and connectivity in tech and telecom industries.</p>
+    </div>
+    <div class="industry-card">
+      <h3>Startups & Disruptive Tech</h3>
+      <p>Empowering startups to disrupt markets with cutting-edge technologies.</p>
+    </div>
+  </div>
+  <div class="slideshow-nav">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
     
   </main>
 </Layout>
@@ -695,65 +667,81 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
 <script>
 
-  function initMobileMenu() {
+  function setupNavbar() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
       menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
       });
     }
   }
 
-  // Run on initial load
-  initMobileMenu();
 
-  // If using Astro's View Transitions, reinitialize after each navigation
-  document.addEventListener('astro:page-load', initMobileMenu);
+  setupNavbar();
 
-  function initSlideshow() {
-    const cards = document.querySelectorAll('.industry-card');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    let currentIndex = 0;
+function initMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-    function showCard(index) {
-      cards.forEach((card, i) => {
-        card.classList.remove('active');
-        if (i === index) {
-          card.classList.add('active');
-        }
-      });
-    }
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+  }
+}
 
-    function nextCard() {
-      currentIndex = (currentIndex + 1) % cards.length;
-      showCard(currentIndex);
-    }
+ // Run on initial load
+initMobileMenu();
 
-    function prevCard() {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      showCard(currentIndex);
-    }
+// If using Astro's View Transitions, reinitialize after each navigation
+document.addEventListener('astro:page-load', initMobileMenu);
 
-    if (prevButton && nextButton) {
-      nextButton.addEventListener('click', nextCard);
-      prevButton.addEventListener('click', prevCard);
-    }
+function initSlideshow() {
+  const cards = document.querySelectorAll('.industry-card');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  let currentIndex = 0;
 
-    // Show the first card initially
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.remove('active');
+      if (i === index) {
+        card.classList.add('active');
+      }
+    });
+  }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
     showCard(currentIndex);
-
-    // Optional: Auto-advance the slideshow
-    setInterval(nextCard, 5000);
   }
 
-  // Initialize the slideshow when the page loads
-  document.addEventListener('astro:page-load', initSlideshow);
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    showCard(currentIndex);
+  }
 
-  // Fallback: If the astro:page-load event doesn't fire, initialize after DOM content is loaded
-  document.addEventListener('DOMContentLoaded', initSlideshow);
+  if (prevButton && nextButton) {
+    nextButton.addEventListener('click', nextCard);
+    prevButton.addEventListener('click', prevCard);
+  }
 
-</script>
+  // Show the first card initially
+  showCard(currentIndex);
+
+  // Optional: Auto-advance the slideshow
+  setInterval(nextCard, 5000);
+}
+
+// Initialize the slideshow when the page loads
+document.addEventListener('astro:page-load', initSlideshow);
+
+// Fallback: If the astro:page-load event doesn't fire, initialize after DOM content is loaded
+document.addEventListener('DOMContentLoaded', initSlideshow);
+
+</script> 

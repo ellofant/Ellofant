@@ -26,3 +26,67 @@
     }
   ]
 }
+ /* <script>
+
+  function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+  }
+
+   // Run on initial load
+  initMobileMenu();
+
+  // If using Astro's View Transitions, reinitialize after each navigation
+  document.addEventListener('astro:page-load', initMobileMenu);
+
+  function initSlideshow() {
+    const cards = document.querySelectorAll('.industry-card');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+
+    function showCard(index) {
+      cards.forEach((card, i) => {
+        card.classList.remove('active');
+        if (i === index) {
+          card.classList.add('active');
+        }
+      });
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showCard(currentIndex);
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      showCard(currentIndex);
+    }
+
+    if (prevButton && nextButton) {
+      nextButton.addEventListener('click', nextCard);
+      prevButton.addEventListener('click', prevCard);
+    }
+
+    // Show the first card initially
+    showCard(currentIndex);
+
+    // Optional: Auto-advance the slideshow
+    setInterval(nextCard, 5000);
+  }
+
+  // Initialize the slideshow when the page loads
+  document.addEventListener('astro:page-load', initSlideshow);
+
+  // Fallback: If the astro:page-load event doesn't fire, initialize after DOM content is loaded
+  document.addEventListener('DOMContentLoaded', initSlideshow);
+
+</script> */
