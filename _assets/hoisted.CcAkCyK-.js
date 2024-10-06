@@ -1,0 +1,1 @@
+function n(){const e=document.querySelector(".menu-toggle"),t=document.querySelector(".nav-links");e&&t&&e.addEventListener("click",()=>{t.classList.toggle("active");const a=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",(!a).toString())})}n();document.addEventListener("astro:after-swap",n);
